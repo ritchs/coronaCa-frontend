@@ -4,17 +4,18 @@ import UseSend from '../components/Hooks/UseSend';
 export const Registro = () => {
     const { sendMail } = UseSend();
     return (
-        <div className='bg-portada bg-contain bg-no-repeat'>
-            <div className='grid grid-cols-5 border-black pt-16'>
-                <div className='col-span-1 border-red-500'> 1</div>
-                <div className='col-span-2  border-red-500'>
-                    <div className='text-9xl text-left text-white font-bold mb-5'>Corona, CA.</div>
-                    <div className='text-5xl text-left text-white'>Cuida <strong> Adultos Mayores</strong>  de</div>
-                    <div className='text-5xl text-left text-white mb-5'>Manera <strong>Independiente</strong></div>
-                    <div className='bg-[#25CB4D] text-white text-7xl font-bold pt-2 pb-3 rounded-full mb-5 w-[31rem]'>18 de marzo</div>
-                    <div className='text-left text-white text-5xl'>Asiste a nuestra <strong className='text-[#F2F244]'>conferencia informativa</strong></div>
-                    <div className='mt-10 text-left text-white text-6xl'>¡Registrate <strong className='text-[#F2F244]'>Gratis</strong>!</div>
-                    <div className='text-left mt-5 text-white pb-[20rem]'>
+        <div className='bg-portada bg-contain bg-no-repeat xl:h-[54rem] 2xl:h-[75rem]'>
+            <div className='grid grid-cols-5 border-black xl:pt-10 2xl:pt-16'>
+                <div className='col-span-1'> 
+                <img src="/images/logo.png" alt="" className='w-40 mx-10' /></div>
+                <div className='col-span-2'>
+                    <div className='xl:text-8xl 2xl:text-9xl text-left text-white font-bold mb-5'>Corona, CA.</div>
+                    <div className='xl:text-4xl 2xl:text-5xl text-left text-white'>Cuida <strong> Adultos Mayores</strong>  de</div>
+                    <div className='xl:text-4xl 2xl:text-5xl text-left text-white mb-5'>Manera <strong>Independiente</strong></div>
+                    <div className='bg-[#25CB4D] text-white xl:text-6xl 2xl:text-7xl font-bold pt-2 pb-3 rounded-full mb-5 w-[31rem]'>18 de marzo</div>
+                    <div className='text-left text-white xl:text-4xl 2xl:text-5xl'>Asiste a nuestra <strong className='text-[#F2F244]'>conferencia informativa</strong></div>
+                    <div className='mt-10 text-left text-white xl:text-5xl 2xl:text-6xl'>¡Registrate <strong className='text-[#F2F244]'>Gratis</strong>!</div>
+                    <div className='text-left mt-5 text-white '>
                         <Formik
                             initialValues={{
                                 name: '',
