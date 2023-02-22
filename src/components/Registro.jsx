@@ -4,7 +4,7 @@ import UseSend from '../components/Hooks/UseSend';
 export const Registro = () => {
     const { sendMail } = UseSend();
     return (
-        <div className='bg-portada bg-contain bg-no-repeat xl:h-[54rem] 2xl:h-[75rem]'>
+        <div className='bg-portada bg-contain bg-no-repeat xl:h-[53rem] 2xl:h-[75rem]'>
             <div className='grid grid-cols-5 border-black xl:pt-10 2xl:pt-16'>
                 <div className='col-span-1'> 
                 <img src="/images/logo.png" alt="" className='w-40 mx-10' /></div>
