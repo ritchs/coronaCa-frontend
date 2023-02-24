@@ -41,7 +41,7 @@ export const Registro = () => {
                                 <label htmlFor="email" className='text-xs'>CORREO ELECTRÓNICO</label><br />
                                 <Field id="email" type="text" name='email' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                
-                                <a type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2' href='/group'>ENVIAR</a>
+                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'>ENVIAR</button>
                                 
                             </Form>
                         </Formik>
