@@ -13,25 +13,14 @@ class MyForm extends React.Component {
   }
  
   handleSubmit = (event) => {
-    console.log('submit', this.state.value)
     alert('A form was submitted: ' + this.state);
- 
-    // fetch('http://localhost:3005/store-data', {
-    //     method: 'POST',
-    //     // We convert the React state to JSON and send it as the POST body
-    //     body: {this.state.name}
-    //   }).then(function(response) {
-    //     console.log(response)
-    //     return response.json();
-    //   });
-
     const options = {
 			method: 'Post',
 			url: "http://localhost:3005/store-data",
 			body: {
 				name: this.state.name,
-				// phone: values.phone,
-				// email:values.email
+				phone: this.state.phone,
+				email:this.state.email
 			},
 			headers: {
 				'content-type': 'application/json',
@@ -40,8 +29,8 @@ class MyForm extends React.Component {
 			},
 			data:{
 					name: this.state.name,
-					// phone: values.phone,
-					// email:values.email
+					phone: this.state.phone,
+					email:this.state.email
 				}
 			
 		};

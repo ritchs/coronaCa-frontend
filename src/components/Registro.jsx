@@ -26,23 +26,33 @@ export const Registro = () => {
                                 email: '',
                             }}
                             onSubmit={async (values) => {
-                                // await new Promise((r) => setTimeout(r, 500));
-                                sendMail(values)
-                                alert(JSON.stringify(values, null, 2));
+                                if (values.name != '' && values.phone != '' && values.email != '')
+                                {
+                                    const res = sendMail(values)
+                                    if(res.status == 200){
+                                     // aqui tienes que poner la funcion que redirecciona
+                                    }
+                                } else {
+                                    const error = {
+                                        Nombre: values.name != '' ? 'correcto' : 'Falta el Nombre',
+                                        Telefono: values.phone != '' ? 'correcto' : 'Falta el Telefono',
+                                        Email: values.email != '' ? 'correcto':'Falta el Email',
+                                    }
+                                    alert(JSON.stringify(error, null, 2));
+                                }
                             }}
                         >
 
 
                             <Form action="">
                                 <label htmlFor="name" className='text-xs'>NOMBRE:</label><br />
-                                <Field id="name" type="text" name='name' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
+                                <Field  id="name" type="text" name='name' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                 <label htmlFor="phone" className='text-xs'>TELÉFONO</label><br />
                                 <Field id="phone" type="text" name='phone' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                 <label htmlFor="email" className='text-xs'>CORREO ELECTRÓNICO</label><br />
                                 <Field id="email" type="text" name='email' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                
-                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'>ENVIAR</button>
-                                
+                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'>ENVIAR</button>                                
                             </Form>
                         </Formik>
                     </div>
