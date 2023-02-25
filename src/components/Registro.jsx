@@ -30,18 +30,18 @@ export const Registro = () => {
                                 email: '',
                             }}
                             onSubmit={async (values) => {
-                                if (values.name != '' && values.phone != '' && values.email != '') {
-                                    const res = sendMail(values)
-                                    console.log(res.status, "resu2")
-                                    if (res.status == 200) {
-                                       
+                                if (values.name !== '' && values.phone !== '' && values.email !== '') {
+                                    const res = await sendMail(values);
+                                    console.log("rtesponse",res);
+                                    if (res.status === 200) {
+                                        navigate("/group")
                                     }
 
                                 } else {
                                     const error = {
-                                        Nombre: values.name != '' ? 'correcto' : 'Falta el Nombre',
-                                        Telefono: values.phone != '' ? 'correcto' : 'Falta el Telefono',
-                                        Email: values.email != '' ? 'correcto' : 'Falta el Email',
+                                        Nombre: values.name !== '' ? 'correcto' : 'Falta el Nombre',
+                                        Telefono: values.phone !== '' ? 'correcto' : 'Falta el Telefono',
+                                        Email: values.email !== '' ? 'correcto' : 'Falta el Email',
                                     }
                                     alert(JSON.stringify(error, null, 2));
                                 }
@@ -55,13 +55,7 @@ export const Registro = () => {
                                 <label htmlFor="email" className='text-xs'>CORREO ELECTRÓNICO</label><br />
                                 <Field id="email" type="email" name='email' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
 
-                                <button type="submit" onClick={(res) => {
-                                    console.log(res.status, "resu")
-                                    if(res.status == 200){
-                                        navigate("/group")
-                                    }
-                                    
-                                }} className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'> ENVIAR</button>
+                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'> ENVIAR</button>
                             </Form>
                         </Formik>
                     </div>
