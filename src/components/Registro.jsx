@@ -6,15 +6,9 @@ import {useNavigate } from 'react-router-dom';
 
 export const Registro = () => {
     const { sendMail } = UseSend();
-    const { goToGroup, setgoToGroup } = React.useState(false);
     const navigate = useNavigate();
-    let x= false;
-
-    function Redirigir(){
-        if(x = true){
-            navigate("/group")
-        }
-    }
+   
+    
   
     return (
         <div className='bg-gradient-to-b from-[#3F5D89] to to-[#8A6DC3] bg-contain bg-no-repeat h-[74rem] lg:h-[50rem] 2xl:h-[75rem]'>
@@ -38,8 +32,9 @@ export const Registro = () => {
                             onSubmit={async (values) => {
                                 if (values.name != '' && values.phone != '' && values.email != '') {
                                     const res = sendMail(values)
+                                    console.log(res.status, "resu2")
                                     if (res.status == 200) {
-                                       Redirigir();
+                                       
                                     }
 
                                 } else {
@@ -56,12 +51,16 @@ export const Registro = () => {
                                 <label htmlFor="name" className='text-xs'>NOMBRE:</label><br />
                                 <Field id="name" type="text" name='name' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                 <label htmlFor="phone" className='text-xs'>TELÉFONO</label><br />
-                                <Field id="phone" type="text" name='phone' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
+                                <Field id="phone" type="tel"     pattern="[0-9]{10}" name='phone' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                 <label htmlFor="email" className='text-xs'>CORREO ELECTRÓNICO</label><br />
-                                <Field id="email" type="text" name='email' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
+                                <Field id="email" type="email" name='email' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
 
-                                <button type="submit" onClick={() => {
-                                     x = true;
+                                <button type="submit" onClick={(res) => {
+                                    console.log(res.status, "resu")
+                                    if(res.status == 200){
+                                        navigate("/group")
+                                    }
+                                    
                                 }} className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'> ENVIAR</button>
                             </Form>
                         </Formik>
