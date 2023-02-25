@@ -1,16 +1,20 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import UseSend from '../components/Hooks/UseSend';
+import {useNavigate } from 'react-router-dom';
+
+
 export const Registro = () => {
     const { sendMail } = UseSend();
+    const navigate = useNavigate();
+   
     
-
-    
+  
     return (
-        <div className='bg-movil lg:bg-portada bg-contain bg-no-repeat h-[74rem] lg:h-[54rem] 2xl:h-[75rem]'>
-            <div className='grid grid-cols-5 border-black lg:pt-10 2xl:pt-16 font-fontMonserrat'>
-                <div className='col-span-5 lg:col-span-1'>
-                    <img src="/images/logo.png" alt="" className='w-[5.5rem] lg:w-36 2xl:w-40 mx-[9.5rem] lg:mx-10' /></div>
+        <div className='bg-gradient-to-b from-[#3F5D89] to to-[#8A6DC3] bg-contain bg-no-repeat h-[74rem] lg:h-[50rem] 2xl:h-[75rem]'>
+            <div className='grid grid-cols-5 border-black  2xl:pt-16 font-fontMonserrat'>
+                <div className='col-span-5 lg:col-span-1 lg:pt-10'>
+                    <img src="/images/logo.png" alt="" className='w-[5.5rem] lg:w-36 2xl:w-40 mx-auto lg:mx-10' /></div>
                 <div className='col-span-5 lg:col-span-2'>
                     <div className='lg:text-7xl 2xl:text-8xl text-2xl lg:text-left text-white font-bold mb-5'>Corona, CA.</div>
                     <div className='lg:text-3xl 2xl:text-4xl text-xl lg:text-left text-white'>Cuida <strong> Adultos Mayores</strong>  de</div>
@@ -26,17 +30,18 @@ export const Registro = () => {
                                 email: '',
                             }}
                             onSubmit={async (values) => {
-                                if (values.name != '' && values.phone != '' && values.email != '')
-                                {
-                                    const res = sendMail(values)
-                                    if(res.status == 200){
-                                     // aqui tienes que poner la funcion que redirecciona
+                                if (values.name !== '' && values.phone !== '' && values.email !== '') {
+                                    const res = await sendMail(values);
+                                    console.log("rtesponse",res);
+                                    if (res.status === 200) {
+                                        navigate("/group")
                                     }
+
                                 } else {
                                     const error = {
-                                        Nombre: values.name != '' ? 'correcto' : 'Falta el Nombre',
-                                        Telefono: values.phone != '' ? 'correcto' : 'Falta el Telefono',
-                                        Email: values.email != '' ? 'correcto':'Falta el Email',
+                                        Nombre: values.name !== '' ? 'correcto' : 'Falta el Nombre',
+                                        Telefono: values.phone !== '' ? 'correcto' : 'Falta el Telefono',
+                                        Email: values.email !== '' ? 'correcto' : 'Falta el Email',
                                     }
                                     alert(JSON.stringify(error, null, 2));
                                 }
@@ -44,20 +49,22 @@ export const Registro = () => {
                         >
                             <Form action="">
                                 <label htmlFor="name" className='text-xs'>NOMBRE:</label><br />
-                                <Field  id="name" type="text" name='name' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
+                                <Field id="name" type="text" name='name' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                 <label htmlFor="phone" className='text-xs'>TELÉFONO</label><br />
-                                <Field id="phone" type="text" name='phone' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
+                                <Field id="phone" type="tel"     pattern="[0-9]{10}" name='phone' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
                                 <label htmlFor="email" className='text-xs'>CORREO ELECTRÓNICO</label><br />
-                                <Field id="email" type="text" name='email' className='w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
-                               
-                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'>ENVIAR</button>                                
+                                <Field id="email" type="email" name='email' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
+
+                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'> ENVIAR</button>
                             </Form>
                         </Formik>
                     </div>
                 </div>
-                <div className=''></div>
+                <div className='col-span-2'>
+                    <img src="/images/reina.png" alt="" className='lg:w-[33rem]' />
+                </div>
                 <div className=''></div>
             </div>
-        </div>
+        </div >
     )
 }

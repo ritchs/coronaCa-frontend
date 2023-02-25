@@ -1,10 +1,13 @@
 import axios from "axios";
+
+// eslint-disable-next-line
 export default () => {
-	const sendMail = (values) => {
+	const sendMail = async (values) => {
+		
 		console.log("values", values)
 		const options = {
 			method: 'Post',
-			url: "http://localhost:3005/store-data",
+			url: "https://backend-eta-topaz.vercel.app/store-data",
 			body: {
 				name: values.name,
 				phone: values.phone,
@@ -12,8 +15,7 @@ export default () => {
 			},
 			headers: {
 				'content-type': 'application/json',
-				'X-RapidAPI-Key': 'your-rapidapi-key',
-				'X-RapidAPI-Host': 'microsoft-translator-text.p.rapidapi.com',
+				'Access-Control-Allow-Origin': '*',
 			},
 			data:{
 					name: values.name,
@@ -22,14 +24,8 @@ export default () => {
 				}
 			
 		};
-		axios.request(options)
-				.then(response => { 
-					console.log('Se envio correcto', response)
-					return response;
-				})
-				.catch(error => {
-					console.log('Ocurrio un erro: ',error)
-				}); 
+		const res = await axios.request(options);
+		return res;
 	}
 	return {
 		sendMail
