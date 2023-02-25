@@ -2,7 +2,7 @@ import React from 'react'
 
 export const Grupo = () => {
     return (
-        <div className='bg-ba bg-cover h-screen'>
+        <div className='bg-gradient-to-b from-[#3F5D89] to to-[#8A6DC3] bg-cover h-screen'>
             <div className='grid grid-cols-4 lg:pt-16 2xl:pt-24 font-fontMonserrat'>
                 <div className='col-span-1'>
                     <a href="/">
