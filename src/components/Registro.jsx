@@ -1,7 +1,8 @@
 import React from 'react';
 import { Formik, Field, Form } from 'formik';
 import UseSend from '../components/Hooks/UseSend';
-import { redirect } from "react-router-dom";
+import { Navigate } from 'react-router-dom';
+
 export const Registro = () => {
     const { sendMail } = UseSend();
     return (
@@ -27,8 +28,7 @@ export const Registro = () => {
                                 if (values.name != '' && values.phone != '' && values.email != '') {
                                     const res = sendMail(values)
                                     if (res.status == 200) {
-                                        redirect("/group");
-
+                                       <Navigate to="/group"/>
                                     }
 
                                 } else {
