@@ -6,7 +6,7 @@ export const Grupo = () => {
             <div className='grid grid-cols-4 lg:pt-16 2xl:pt-24 font-fontMonserrat'>
                 <div className='col-span-1'>
                     <a href="/">
-                        <img src="/images/logo.png" alt="" className='lg:w-36 2xl:w-40 mx-10' />
+                        <img src="/images/logo.png" alt="" className='w-0 lg:w-36 2xl:w-40 mx-10' />
                     </a>
                 </div>
                 <div className='col-span-2 text-white'>
