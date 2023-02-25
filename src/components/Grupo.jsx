@@ -16,7 +16,7 @@ export const Grupo = () => {
                     <div className='text-xl lg:text-3xl 2xl:text-4xl'>Sólo falta unirte a nuestro grupo de</div>
                     <div className='text-xl lg:text-3xl 2xl:text-4xl'><strong>WhatsApp</strong> donde te mantendremos</div>
                     <div className='text-xl lg:text-3xl 2xl:text-4xl mb-14'>informada.</div>
-                    <a href="" className='bg-[#25CB4D] rounded-md lg:px-24 p-2'>UNIRME AL GRUPO</a>
+                    <a href="https://chat.whatsapp.com/IWo09HVQrPQLY5nWCaeN4r" className='bg-[#25CB4D] rounded-md lg:px-24 p-2'>UNIRME AL GRUPO</a>
                 </div>
             </div>
         </div>
