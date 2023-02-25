@@ -3,8 +3,17 @@ import { Formik, Field, Form } from 'formik';
 import UseSend from '../components/Hooks/UseSend';
 import { Navigate } from 'react-router-dom';
 
+
 export const Registro = () => {
     const { sendMail } = UseSend();
+    const { goToGroup, setgoToGroup } = React.useState(false);
+
+    function Redirigir() {
+        if (goToGroup) {
+            return <Navigate to="/group" />
+
+        }
+    }
     return (
         <div className='bg-gradient-to-b from-[#3F5D89] to to-[#8A6DC3] bg-contain bg-no-repeat h-[74rem] lg:h-[50rem] 2xl:h-[75rem]'>
             <div className='grid grid-cols-5 border-black  2xl:pt-16 font-fontMonserrat'>
@@ -28,7 +37,7 @@ export const Registro = () => {
                                 if (values.name != '' && values.phone != '' && values.email != '') {
                                     const res = sendMail(values)
                                     if (res.status == 200) {
-                                       <Navigate to="/group"/>
+                                        Redirigir();
                                     }
 
                                 } else {
@@ -49,7 +58,9 @@ export const Registro = () => {
                                 <label htmlFor="email" className='text-xs'>CORREO ELECTRÓNICO</label><br />
                                 <Field id="email" type="text" name='email' className='w-[23rem] lg:w-[30rem] rounded-md h-10 bg-[#DADEEA] text-black' /><br />
 
-                                <button type="submit" className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'> ENVIAR</button>
+                                <button type="submit" onClick={() => {
+                                    setgoToGroup(true);
+                                }} className='mt-5 bg-[#25CB4D] rounded-md px-5 p-2'> ENVIAR</button>
                             </Form>
                         </Formik>
                     </div>
