@@ -14,7 +14,7 @@ export const Registro = () => {
         <div className='bg-gradient-to-b from-[#3F5D89] to to-[#8A6DC3] bg-contain bg-no-repeat h-[74rem] lg:h-[50rem] 2xl:h-[75rem]'>
             <div className='grid grid-cols-5 border-black  2xl:pt-16 font-fontMonserrat'>
                 <div className='col-span-5 lg:col-span-1 lg:pt-10'>
-                    <img src="/images/logo.png" alt="" className='w-[5.5rem] lg:w-36 2xl:w-40 mx-[9.5rem] lg:mx-10' /></div>
+                    <img src="/images/logo.png" alt="" className='w-[5.5rem] lg:w-36 2xl:w-40 mx-auto lg:mx-10' /></div>
                 <div className='col-span-5 lg:col-span-2'>
                     <div className='lg:text-7xl 2xl:text-8xl text-2xl lg:text-left text-white font-bold mb-5'>Corona, CA.</div>
                     <div className='lg:text-3xl 2xl:text-4xl text-xl lg:text-left text-white'>Cuida <strong> Adultos Mayores</strong>  de</div>
